@@ -2,16 +2,19 @@
 
 class VendrediController extends BaseController {
 
-	var $carte = 'As de coeur';
+	var $cartes 	= array();
+	var $dangers	= array();
+	var $pirates 	= array();
+	var $p_sante	= 18;
+
+	public function __construct()
+	{
+		// game loading
+	}
 	
 	public function getIndex()
 	{
-		return View::make('base')->with('carte', $this->carte);
-	}
-
-	public function getSecond()
-	{
-		$this->carte = '2 de trefle';
-		return View::make('base')->with('carte', $this->carte);
+		// first step of the game, asking for the level
+		return View::make('base');
 	}
 }

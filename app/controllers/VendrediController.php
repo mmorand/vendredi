@@ -2,6 +2,9 @@
 
 class VendrediController extends BaseController {
 
+	// Creating a game with every args
+	var $board_game	= array();
+
 	// Cards pool
 	var $combats 	= array();
 	var $oldness	= array();
@@ -13,7 +16,7 @@ class VendrediController extends BaseController {
 	var $pirate2 	= array();
 
 	// Life points
-	var $lifepts	= 18;
+	var $lifepts	= 22;
 
 	// Game level
 	var $gamelvl	= 0;
@@ -38,6 +41,9 @@ class VendrediController extends BaseController {
 		// Set the two pirates for this game
 		$this->pirate1 = $this->pirates[0];
 		$this->pirate2 = $this->pirates[1];
+
+		$this->board_game['pirate1'] = $this->pirate1;
+		$this->board_game['pirate2'] = $this->pirate2;
 	}
 
 	private function addCard( $name = '', $type = 0, $strengh = 0, $power = '', $free_cards = 0, $strengh_lvl1 = 0, $strengh_lvl2 = 0, $strengh_lvl3 = 0, $card_url = '333x187.gif' )
@@ -61,8 +67,7 @@ class VendrediController extends BaseController {
 	{
 		// first step of the game, asking for the level
 		return View::make('base')->with(array(
-			'pirate1' => $this->pirate1,
-			'pirate2' => $this->pirate2
+			'board_game' => $this->board_game
 		));
 	}
 }

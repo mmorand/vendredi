@@ -1,0 +1,9 @@
+prod:
+    scheme: ftp
+    host: srv1.wng.ch
+    port: 21
+    user: wp_sandbox_ftp
+    pass: yzw0frazi5QwyRl
+    check: true
+    path:
+        remote: /web/vendredi/

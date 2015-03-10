@@ -73,15 +73,38 @@ body {
 	bottom: 0;
 	right: 0;
 }
-.card-pirate {
+.horizontal-card {
 	position: absolute;
-	width: 16.48%;
-	top: 6.9%;
-	left: 27.2%;
+	width: 16.46%;
+}
+.vertical-card {
+	position: absolute;
+	width: 8.23%;
+}
+.lifepoints {
+	position: absolute;
+	width: 10%;
+	font-family: "Comic Sans MS", cursive, sans-serif;
+	font-size: 175px;
+	text-align: center;
 }
 #pirate-1 {
-	top: 6.9%;
+	top: 6.76%;
+	left: 27.2%;
 }
 #pirate-2 {
-	top: 20.1%;
+	top: 19.76%;
+	left: 27.2%;
+}
+#game-level {
+	top: 44.5%;
+	left: 5.1%;
+}
+#lifepoints-reserve {
+	top: 13.5%;
+	left: 82.5%;
+}
+#lifepoints-pool {
+	top: 38%;
+	left: 82.5%;
 }

@@ -73,3 +73,15 @@ body {
 	bottom: 0;
 	right: 0;
 }
+.card-pirate {
+	position: absolute;
+	width: 16.48%;
+	top: 6.9%;
+	left: 27.2%;
+}
+#pirate-1 {
+	top: 6.9%;
+}
+#pirate-2 {
+	top: 20.1%;
+}

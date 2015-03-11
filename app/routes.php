@@ -17,3 +17,9 @@ Route::get('/', function()
 });
 
 Route::controller('vendredi', 'VendrediController');
+
+// 404 pages
+App::missing(function()
+{
+	return Response::make('<p style="width:100%; text-align:center; margin-top:150px;"><img src="http://bluefaqs.com/wp-content/uploads/2009/11/css-tricks-404.jpg"/></p>', 404);
+});

@@ -11,6 +11,8 @@
 <div id="game-wrapper">
 	<div id="game-container">
 		<div id="game-content">
+			<p>{{$board_game['status']}}</p>
+
 			<?php // Pirates ?>
 			<a href="{{URL::to('vendredi')}}">{{HTML::image('img/cards/'.$board_game['pirate1']['card_url'], 'pirate 1', array('class' => 'horizontal-card', 'id' => 'pirate-1'))}}</a>
 			<a href="{{URL::to('vendredi')}}">{{HTML::image('img/cards/'.$board_game['pirate2']['card_url'], 'pirate 2', array('class' => 'horizontal-card', 'id' => 'pirate-2'))}}</a>

@@ -7,12 +7,15 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'BaseController' => $baseDir . '/app/controllers/BaseController.php',
+    'CreateCardsTable' => $baseDir . '/app/database/migrations/2015_03_10_093717_create_cards_table.php',
+    'CreateGamesTable' => $baseDir . '/app/database/migrations/2015_03_10_092205_create_games_table.php',
     'DatabaseSeeder' => $baseDir . '/app/database/seeds/DatabaseSeeder.php',
     'HomeController' => $baseDir . '/app/controllers/HomeController.php',
     'IlluminateQueueClosure' => $vendorDir . '/laravel/framework/src/Illuminate/Queue/IlluminateQueueClosure.php',
     'SessionHandlerInterface' => $vendorDir . '/symfony/http-foundation/Symfony/Component/HttpFoundation/Resources/stubs/SessionHandlerInterface.php',
     'TestCase' => $baseDir . '/app/tests/TestCase.php',
     'User' => $baseDir . '/app/models/User.php',
+    'VendrediController' => $baseDir . '/app/controllers/VendrediController.php',
     'Whoops\\Module' => $vendorDir . '/filp/whoops/src/deprecated/Zend/Module.php',
     'Whoops\\Provider\\Zend\\ExceptionStrategy' => $vendorDir . '/filp/whoops/src/deprecated/Zend/ExceptionStrategy.php',
     'Whoops\\Provider\\Zend\\RouteNotFoundStrategy' => $vendorDir . '/filp/whoops/src/deprecated/Zend/RouteNotFoundStrategy.php',

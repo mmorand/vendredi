@@ -15,6 +15,15 @@ class CreateGamesTable extends Migration {
 		//
 		Schema::create('vendredi_games', function(Blueprint $table) {
 			$table->increments('id');
+			$table->boolean('status')->default(0);
+			$table->tinyInteger('lifepoints')->default(18);
+			$table->tinyInteger('pirate_1');
+			$table->tinyInteger('pirate_2');
+			$table->string('oldness');
+			$table->string('dangers');
+			$table->string('fighting');
+			$table->boolean('endgame')->default(0);
+			$table->tinyInteger('points')->default(0);
 		});
 	}
 
@@ -26,6 +35,7 @@ class CreateGamesTable extends Migration {
 	public function down()
 	{
 		//
+		Schema::drop('vendredi_games');
 	}
 
 }

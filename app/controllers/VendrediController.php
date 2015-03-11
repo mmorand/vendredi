@@ -3,27 +3,19 @@
 class VendrediController extends BaseController {
 
 	// Creating a game with every args
+	var $test		= 'démarrage';
 	var $board_game	= array();
 
 	// Cards pool
-	var $combats 	= array();
-	var $oldness	= array();
-	var $dangers	= array();
 	var $pirates 	= array();
 
 	// Pirates
 	var $pirate1 	= array();
 	var $pirate2 	= array();
 
-	// Life points
-	var $lifepts	= 22;
-
-	// Game level
-	var $gamelvl	= 0;
-	var $dangerlvl	= 0;
-
 	public function __construct()
 	{
+		$this->board_game['status'] = $this->test;
 		// game loading
 		array_push($this->pirates, $this->addCard('', 'pirate', 20, '', 6, 0, 0, 20, 'pirate-01.png'));
 		array_push($this->pirates, $this->addCard('', 'pirate', 25, '', 7, 0, 0, 25, 'pirate-02.png'));
@@ -63,11 +55,14 @@ class VendrediController extends BaseController {
 		return $card;
 	}
 	
-	public function getIndex()
+	public function getIndex($lvl = 0)
 	{
-		// first step of the game, asking for the level
-		return View::make('base')->with(array(
-			'board_game' => $this->board_game
-		));
+		if( $lvl != 0 ) {
+
+			$this->board_game['status'] = $lvl;
+			return View::make('base')->with(array(
+				'board_game' => $this->board_game
+			));
+		}
 	}
 }

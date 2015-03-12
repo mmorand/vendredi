@@ -63,6 +63,10 @@ class VendrediController extends BaseController {
 			return View::make('base')->with(array(
 				'board_game' => $this->board_game
 			));
+		} else {
+			return View::make('base')->with(array(
+				'board_game' => $this->board_game
+			));
 		}
 	}
 }

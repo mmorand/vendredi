@@ -12,8 +12,8 @@
 	<div id="game-container">
 		<div id="game-content">
 			<?php // Pirates ?>
-			<a href="{{URL::to('vendredi')}}">{{HTML::image('img/cards/', 'pirate 1', array('class' => 'horizontal-card', 'id' => 'pirate-1'))}}</a>
-			<a href="{{URL::to('vendredi')}}">{{HTML::image('img/cards/', 'pirate 2', array('class' => 'horizontal-card', 'id' => 'pirate-2'))}}</a>
+			<a class="fancybox" href="{{asset('img/cards/'.$all_cards[$pirate_1]->card_image)}}">{{HTML::image('img/cards/'.$all_cards[$pirate_1]->card_image, 'pirate 1', array('class' => 'horizontal-card', 'id' => 'pirate-1'))}}</a>
+			<a href="#" class="fancybox">{{HTML::image('img/cards/'.$all_cards[$pirate_2]->card_image, 'pirate 2', array('class' => 'horizontal-card', 'id' => 'pirate-2'))}}</a>
 
 			<?php // Game Level ?>
 			{{HTML::image('img/cards/game-lvl-'.$phase.'.png', 'game level', array('class' => 'horizontal-card', 'id' => 'game-level'))}}
@@ -26,5 +26,6 @@
 </div>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 {{HTML::script('js/jquery.fancybox.pack.js')}}
+{{HTML::script('js/script.js')}}
 </body>
 </html>

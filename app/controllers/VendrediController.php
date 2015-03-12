@@ -14,6 +14,8 @@ class VendrediController extends BaseController {
 		var $pirate1 		= 0;
 		var $pirate2 		= 0;
 
+		var $all_cards 		= array();
+
 		//Points de santé
 		var $lifepoints = 0;
 	// .Variables de jeu
@@ -42,6 +44,9 @@ class VendrediController extends BaseController {
 		});
 
 		$game_in_progress = DB::table('vendredi_games')->where('status', 1)->first();
+		$every_cards = DB::table('vendredi_cards')->get();
+		array_unshift($every_cards, 'phoney');
+		unset($every_cards[0]);
 
 		$this->phase 			= $game_in_progress->status;
 		$this->lifepoints 		= $game_in_progress->lifepoints;
@@ -50,25 +55,9 @@ class VendrediController extends BaseController {
 		$this->deck_oldness  	= $game_in_progress->oldness;
 		$this->deck_dangers 	= $game_in_progress->dangers;
 		$this->deck_fighting 	= $game_in_progress->fighting;
+		$this->all_cards		= $every_cards;
 	}
 
-	private function addCard( $name = '', $type = 0, $strengh = 0, $power = '', $free_cards = 0, $strengh_lvl1 = 0, $strengh_lvl2 = 0, $strengh_lvl3 = 0, $card_url = '333x187.gif' )
-	{
-		// Generate cards
-		$card = array(
-			'name'		 	=> $name,
-			'type'			=> $type,
-			'strengh'		=> $strengh,
-			'power'			=> $power,
-			'free_cards'	=> $free_cards,
-			'strengh_lvl1'	=> $strengh_lvl1,
-			'strengh_lvl2'	=> $strengh_lvl2,
-			'strengh_lvl3'	=> $strengh_lvl3,
-			'card_url'		=> $card_url
-		);
-		return $card;
-	}
-	
 	public function getIndex($lvl = 0)
 	{
 		// Create the game in the correct configuration level
@@ -151,6 +140,10 @@ class VendrediController extends BaseController {
 		return View::make('hello')->with(array('test' => $this->board_game['test']));
 	}
 
+	/**
+	 * Display the game with every cards
+	 */
+
 	public function getGame()
 	{
 		return View::make('base')->with(array(
@@ -161,6 +154,7 @@ class VendrediController extends BaseController {
 			'oldness' 		=> $this->deck_oldness,
 			'dangers' 		=> $this->deck_dangers,
 			'fighting' 		=> $this->deck_fighting,
+			'all_cards'		=> $this->all_cards,
 		));
 	}
 }

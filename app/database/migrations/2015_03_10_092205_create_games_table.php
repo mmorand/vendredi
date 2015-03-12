@@ -16,6 +16,7 @@ class CreateGamesTable extends Migration {
 		Schema::create('vendredi_games', function(Blueprint $table) {
 			$table->increments('id');
 			$table->boolean('status')->default(0);
+			$table->tinyInteger('phase')->default(0);
 			$table->tinyInteger('lifepoints')->default(18);
 			$table->tinyInteger('pirate_1');
 			$table->tinyInteger('pirate_2');

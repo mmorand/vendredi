@@ -13,7 +13,16 @@
 
 Route::get('/', function()
 {
-	return View::make('hello');
+	$game = DB::table('vendredi_games')->where('status', 1)->first();
+
+	if( $game->status == 1 )
+	{
+		return Redirect::action('VendrediController@getGame');
+	}
+	else
+	{
+		return View::make('hello');
+	}
 });
 
 Route::controller('vendredi', 'VendrediController');
